@@ -16,11 +16,11 @@ class GameData:
         elif task.solved(user_answer) and (step + 1) != self.total_steps:
             result["status"] = "next_step"
             result["step"] = step + 1
-        elif user_answer != self.correct_answer and t > 0:
+        elif user_answer != task.correct_answer and t > 0:
             result["status"] = "retry"
             result["step"] = step
             result["prize"] = self.steps[step]
-        elif user_answer != self.correct_answer and t == 0:
+        elif user_answer != task.correct_answer and t == 0:
             result["status"] = "loss"
             result["prize"] = 0 if step == 0 else self.steps[step - 1]
         elif user_answer == "Stop":
@@ -40,9 +40,9 @@ class GameData:
             tasks = {}
             for sum, raw_tasks in raw_data.items():
                 tasks.setdefault(sum, [])
-            for raw_task in raw_tasks:
-                task = Task(raw_task['question'], raw_task['answers'], sum)
-                tasks[sum].append(task)
+                for raw_task in raw_tasks:
+                    task = Task(raw_task['question'], raw_task['answers'], sum)
+                    tasks[sum].append(task)
         except FileNotFoundError:
             exit("Не удалось загрузить задания для игры!")
         except yaml.parser.ParserError:
