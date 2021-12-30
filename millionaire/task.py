@@ -29,9 +29,11 @@ class Task:
 
     def answers_str(self):
         str = 'Варианты ответов:'
+
         for key in self.answers:
             str += f"\n{key}. {self.answers[key]}"
-            return str
+
+        return str
 
     def format(item):
         return str(item).strip()
