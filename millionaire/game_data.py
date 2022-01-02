@@ -39,7 +39,7 @@ class GameData:
             tasks = {}
             for sum, raw_tasks in raw_data.items():
                 tasks.setdefault(sum, [])
-            for raw_task in raw_tasks:
+                for raw_task in raw_tasks:
                     task = Task(raw_task['question'], raw_task['answers'], sum)
                     tasks[sum].append(task)
         except FileNotFoundError:
