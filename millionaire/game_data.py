@@ -32,7 +32,6 @@ class GameData:
     def task_for(self, step):
         sum = self.steps[step]
         return random.choice(self.tasks[sum])
-
     def load_tasks_from(self, filename):
         try:
             file = open(filename, 'r', encoding="utf8")
@@ -51,7 +50,7 @@ class GameData:
         else:
             file.close()
             return tasks
-
+            
     def get_steps_for(self, tasks):
         steps = list(tasks)
         steps.sort()

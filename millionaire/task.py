@@ -29,7 +29,7 @@ class Task:
 
     def answers_str(self):
         str = 'Варианты ответов:'
-        
+
         for key in self.answers:
             str += f"\n{key}. {self.answers[key]}"
 

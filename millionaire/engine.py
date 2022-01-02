@@ -41,7 +41,10 @@ class Engine:
             return user_result["prize"]
         elif user_result["status"] == "retry":
             # реализовать логику для повторной попытки
-            pass # убрать потом
+            #t -= 1
+           # print("К сожалению, вы ошиблись. Попробуйте ещё раз")
+            #self.current_step = user_result["step"]
+            #return self.next_question(t = t)
         else:
             print("К сожалению, вы ошиблись.")
             print(f"Правильный ответ: {task.correct_answer}")
